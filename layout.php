@@ -2,7 +2,7 @@
 echo '<main role="main" class="flex-shrink-0">
     <div class="container">
         <div class="row">';
-$articles = [];
+$articles = require_once 'data.php';
 foreach ($articles as $article) {
         echo '<article>
                 <header>

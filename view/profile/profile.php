@@ -1,12 +1,11 @@
 <?php
-require_once 'header.php';
 echo '
 <main role="main" class="d-flex d-row">
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                <div id="photo">
-                    <img src="default-cat.jpg" alt="profile-image">
+            <div class="col-12 col-lg-3">
+                <div id="photo text-center">
+                    <img src="/view/profile/default-cat.jpg" alt="profile-image">
                 </div>
                 <div class="card">
                     <div class="card-header">
@@ -29,14 +28,14 @@ echo '
                     </ul>
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-12 col-lg-9">
                 <div class="jumbotron p-0 row">
                     <div class="col-9">
-                        <h1>My Name</h1>
+                        <h1>' . $data['name'] . ' ' . $data['surname'] . '</h1>
                         <h2>My Name</h2>
-                    </div>
+</div>
                     <div class="col-3">
-                        <button type="button" class="btn btn-secondary">Edit</button>
+                        <button type="button" class="btn btn-secondary" style="width: 100%;">Edit</button>
                     </div>
                 </div>
                 <hr class="my-4">
@@ -61,4 +60,3 @@ echo '
     </div>
 </main>
 ';
-require_once 'footer.php';

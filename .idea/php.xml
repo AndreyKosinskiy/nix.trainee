@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="nix.trainee" id="8a1b9cb6-1dba-478c-b581-558567cfe4d3" name="nix.trainee" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/index.php" remote-root="index.php" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />
 </project>

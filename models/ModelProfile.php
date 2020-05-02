@@ -6,27 +6,16 @@ class ModelProfile extends Model
 {
     public function get_data()
     {
-        return [
-            1 => [
-                'id'=>1,
-                'name'=>"First",
-                'surname' => 'Person'
-            ],
-            2 => [
-                'id'=>2,
-                'name'=>"Second",
-                'surname' => 'Person'
-            ],
-            3 => [
-                'id'=>3,
-                'name'=>"Third",
-                'surname' => 'Person'
-            ],
-            4 => [
-                'id'=>4,
-                'name'=>"Four",
-                'surname' => 'Person'
-            ],
-        ];
+        $query = $this->db->query('SELECT * FROM Profiel');
+        $data = $query->fetchAll();
+        return $data;
+    }
+    public function get_data_by_id($id =1)
+    {
+        $statement = $this->db->prepare('SELECT * FROM Profiel where id = :id');
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        $data = $statement->fetchAll()[0];
+        return $data;
     }
 }

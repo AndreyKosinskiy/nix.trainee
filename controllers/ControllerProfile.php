@@ -12,7 +12,8 @@ class ControllerProfile extends Controller
 
         function action_index($id = 1)
         {
-            $data = $this->model->get_data()[$id];
+            $data = $this->model->get_data_by_id($id);
+            //$data = $this->model->get_data();
             $this->view->generate('view/profile/profile.php', 'global_templates/layout.php', $data);
         }
     }

@@ -9,7 +9,8 @@ class Route
 {
     static function start()
     {
-        $controller = 'Main';
+        $controller = 'List';
+        $controller_name = 'List';
         $action_name = 'index';
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);

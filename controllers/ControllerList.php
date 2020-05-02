@@ -13,7 +13,7 @@ require_once './models/ModelList.php';
 
         function action_index($id = null)
         {
-
+            print('action_index');
             $data = $this->model->get_data();
             $this->view->generate('./view/list/list.php', 'global_templates/layout.php', $data);
         }

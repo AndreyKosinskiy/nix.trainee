@@ -31,7 +31,7 @@ echo '
             <div class="col-12 col-lg-9">
                 <div class="jumbotron p-0 row">
                     <div class="col-9">
-                        <h1>' . $data['name'] . ' ' . $data['surname'] . '</h1>
+                        <h1>' . $data['firstname'] . ' ' . $data['lastname'] . '</h1>
                         <h2>My Name</h2>
 </div>
                     <div class="col-3">

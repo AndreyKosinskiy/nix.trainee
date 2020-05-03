@@ -1,30 +1,20 @@
 <?php
 
-class Article
+namespace Models\Users;
+class User
 {
 
-    private $author;
-    private $text;
-    private $title;
+    private $name;
 
-    public function __construct(string $author, string $text, string $title)
+
+    public function __construct(string $name)
     {
-        $this->author = $author;
-        $this->text = $text;
-        $this->title = $title;
+        $this->name = $name;
     }
 
-    public function getTitle(): string
+    public function getName(): string
     {
         return $this->title;
     }
 
-    public function getText(): string
-    {
-        return $this->text;
-    }
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
 }

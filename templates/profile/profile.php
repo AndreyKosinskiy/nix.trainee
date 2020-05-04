@@ -5,7 +5,7 @@ echo '
         <div class="row">
             <div class="col-12 col-lg-3">
                 <div id="photo text-center">
-                    <img src="/view/profile/default-cat.jpg" alt="profile-image">
+                    <img src="/templates/profile/default-cat.jpg" alt="profile-image">
                 </div>
                 <div class="card">
                     <div class="card-header">

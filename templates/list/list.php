@@ -2,13 +2,13 @@
 echo '<main role="main" class="flex-shrink-0">
     <div class="container">
         <div class="row">';
-foreach ($data as $article) {
-        echo '<article>
+foreach ($articles as $article) {
+        echo '<article class = "col-12">
                 <header>
                     <h2>' . $article['title'] . '</h2>
                 </header>
                 <section>
-                    <p>' . $article['content'] . '</p>
+                    <p>' . $article['text'] . '</p>
                 </section>
             </article>';
 }

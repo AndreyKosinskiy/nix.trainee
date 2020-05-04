@@ -1,7 +1,33 @@
 <?php
-ini_set('display_errors', 1);
-require_once 'base/BaseController.php';
-require_once 'base/BaseModel.php';
-require_once 'base/BaseView.php';
-include_once __DIR__ . '/route.php';
-Route::start();
+spl_autoload_register(function (string $className) {
+    require_once __DIR__ . '/' . str_replace("\\", "/", $className) . '.php';
+});
+
+$route = $_GET['route'] ?? '';
+$routes = require __DIR__ . 'routes.php';
+
+$isRouteFound = false;
+foreach ($routes as $pattern => $controllerAndAction) {
+    preg_match($pattern, $route, $matches);
+    if (!empty($matches)) {
+        $isRouteFound = !$isRouteFound;
+        break;
+    }
+}
+
+
+if (!$isRouteFound) {
+    $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+    header('HTTP/1.1 404 Not Found');
+    header("Status: 404 Not Found");
+    header('Location:' . $host . '404');
+    return;
+}
+
+unset($matches[0]);
+
+$controllerName = $controllerAndAction[0];
+$actionName = $controllerAndAction[1];
+
+$controller = new $controllerName();
+$controller -> $actionName(...$matches);

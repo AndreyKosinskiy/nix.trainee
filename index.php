@@ -1,6 +1,5 @@
 <?php
 spl_autoload_register(function (string $className) {
-<<<<<<< HEAD
     require_once __DIR__ . '/' . str_replace("\\", "/", $className) . '.php';
 });
 
@@ -32,10 +31,3 @@ $actionName = $controllerAndAction[1];
 
 $controller = new $controllerName();
 $controller -> $actionName(...$matches);
-=======
-    require_once __DIR__ . '/' . str_replace("\\","/",$className) . '.php';
-});
-
-$author = new \Models\Users\User('anddrey');
-$article = new \Models\Articles\Article($author,'qweqwe','safasfasf');
->>>>>>> c1c490f08077a712a6d1d325442dbc91764324a7

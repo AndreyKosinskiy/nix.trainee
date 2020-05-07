@@ -29,6 +29,5 @@ class View
             header('Location:' . $host . '404');
             return;
         }
-
     }
 }

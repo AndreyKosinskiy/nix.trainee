@@ -1,7 +1,9 @@
 <?php
 return [
-    'host'=>'localhost',
-    'dbname'=>'post_site_db',
-    'username'=>'db_user',
-    'pass'=>'metrolog1224'
+    'db'=>[
+        'host' => 'localhost',
+        'dbname' => 'post_db',
+        'user'=>'db_user',
+        'password'=>'metrolog1224'
+    ]
 ];

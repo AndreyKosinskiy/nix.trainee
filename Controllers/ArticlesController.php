@@ -5,6 +5,7 @@ namespace Controllers;
 
 
 use Models\Articles\Article;
+use Models\Users\User;
 use View\View;
 
 class ArticlesController
@@ -27,7 +28,19 @@ class ArticlesController
         $this->view -> renderHTML('list/single.php',  ['articles'=>$article]);
     }
 
-    public function edit(int $id)
+    public function add() :void
+    {
+        $author = User::getById(1);
+
+        $article = new Article();
+        $article->setAuthor($author);
+        $article->setName("Insert Title");
+        $article->setText("Insert Text");
+
+        $article->save();
+    }
+
+    public function edit(int $id) :void
     {
         $article = Article::getById($id);
         if ($article === null) {

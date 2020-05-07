@@ -5,10 +5,11 @@ use Models\Users\User;
 
 class Article
 {
-
-    private $author;
-    private $text;
-    private $title;
+    private int $id;
+    private User $author;
+    private string $text;
+    private string $title;
+    private  $create_at;
 
     public function __construct(User $author, string $text, string $title)
     {

@@ -25,8 +25,7 @@ class MainController
             ['title' => 'Статья 1', 'text' => 'Текст статьи 1'],
             ['title' => 'Статья 2', 'text' => 'Текст статьи 2'],
         ];
-        $sql = 'SELECT * FROM articles';
-        $articles = $this->db->query($sql,[],Article::class);
+        $articles = Article::findAll();
         $this->view->renderHTML('list/list.php', array('articles' => $articles));
     }
 

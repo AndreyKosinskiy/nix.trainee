@@ -1,4 +1,7 @@
 <?php
+
+use View\View;
+
 ini_set('display_errors', 1);
 spl_autoload_register(function (string $className) {
     require_once __DIR__ . '/' . str_replace("\\", "/", $className) . '.php';
@@ -18,7 +21,9 @@ foreach ($routes as $pattern => $controllerAndAction) {
 
 
 if (!$isRouteFound) {
-    $page404 = include __DIR__ . '/templates/page_404.php';
+    $view = new View();
+    $view->renderHTML('errors/page_404.php', [], 404);
+    return;
 }
 
 unset($matches[0]);
@@ -27,4 +32,4 @@ $controllerName = $controllerAndAction[0];
 $actionName = $controllerAndAction[1];
 
 $controller = new $controllerName();
-$controller -> $actionName(...$matches);
+$controller->$actionName(...$matches);

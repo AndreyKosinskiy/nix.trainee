@@ -35,6 +35,7 @@ class Db
         if (false === $result) {
             return null;
         }
+
         return $stm->fetchAll(\PDO::FETCH_CLASS, $className);
     }
 

@@ -13,7 +13,7 @@ class View
 
     public function renderHTML(string $templateName, array $vars = [], $code=200)
     {
-        // Put tamplate in buffer for catch Exception when template will be render.
+        // Put template in buffer for catch Exception when template will be render.
         http_response_code($code);
         extract($vars);
         ob_start();

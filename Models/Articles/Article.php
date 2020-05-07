@@ -10,8 +10,8 @@ class Article extends ActiveRecordEntity
 {
     protected int $authorId;
     protected string $text;
-    protected string $title;
-    protected  $createAt;
+    protected string $name;
+    protected  $createdAt;
 
     public function getName() :string
     {
@@ -21,6 +21,16 @@ class Article extends ActiveRecordEntity
     public function getText() :string
     {
         return $this->text;
+    }
+
+    public function setName($value)
+    {
+        $this->name = $value;
+    }
+
+    public function setText($value)
+    {
+        $this->text = $value;
     }
 
     protected static function getTableName() :string

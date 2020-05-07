@@ -65,10 +65,17 @@ abstract class ActiveRecordEntity
             $params2values[":$column"] = $value;
         }
 
-        $sql = 'INSERT INTO ' . static::getTableName().'(' . implode(", ", $columns2params) . ')' . ' VALUES (:' . implode(', :', $columns2params) . ')';
+        $sql = 'INSERT INTO ' . static::getTableName() . '(' . implode(", ", $columns2params) . ')' . ' VALUES (:' . implode(', :', $columns2params) . ')';
         $db = Db::getInstance();
         $db->query($sql, $params2values, static::class);
         $this->id = $db->getLastInsertId();
+    }
+
+    public function delete(): void
+    {
+        $db = Db::getInstance();
+        $db->query('DELETE FROM ' . static::getTableName() . ' WHERE id=:id', [':id' => $this->id]);
+        $this->id = null;
     }
 
     private function mapPropertiesToDbFormat(): array

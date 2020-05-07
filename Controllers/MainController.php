@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Models\Articles\Article;
 use Services\Db;
 use View\View;
 
@@ -25,7 +26,7 @@ class MainController
             ['title' => 'Статья 2', 'text' => 'Текст статьи 2'],
         ];
         $sql = 'SELECT * FROM articles';
-        $articles = $this->db->query($sql);
+        $articles = $this->db->query($sql,[],Article::class);
         $this->view->renderHTML('list/list.php', array('articles' => $articles));
     }
 

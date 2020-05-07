@@ -5,10 +5,10 @@ echo '<main role="main" class="flex-shrink-0">
 foreach ($articles as $article) {
     echo '<article class = "col-12">
                 <header>
-                    <h2>' . $article['name'] . '</h2>
+                    <h2>' . $article->getName() . '</h2>
                 </header>
                 <section>
-                    <p>' . $article['text'] . '</p>
+                    <p>' . $article->getText() . '</p>
                 </section>
             </article>';
 }

@@ -17,7 +17,7 @@ class Db
         $this->pdo->exec('SET NAMES utf8 COLLATE utf8_unicode_ci');
     }
 
-    public function query(string $sql, $params = []): ?array
+    public function query(string $sql, $params = [], string $className = 'stdClass'): ?array
     {
         $stm =$this->pdo->prepare($sql);
         $result = $stm->execute($params);
@@ -25,7 +25,7 @@ class Db
         if (false === $result){
             return null;
         }
-        return $stm->fetchAll();
+        return $stm->fetchAll(\PDO::FETCH_CLASS, $className);
     }
 
 }

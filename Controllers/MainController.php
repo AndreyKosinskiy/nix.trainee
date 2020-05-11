@@ -21,9 +21,4 @@ class MainController
         $articles = Article::findAll();
         $this->view->renderHTML('list/list.php', array('articles' => $articles));
     }
-
-    public function sayHello(string $name)
-    {
-        echo 'Привет ' . $name;
-    }
 }

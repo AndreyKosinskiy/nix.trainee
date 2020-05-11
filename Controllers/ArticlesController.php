@@ -4,6 +4,7 @@
 namespace Controllers;
 
 
+use Exceptions\NotFoundException;
 use Models\Articles\Article;
 use Models\Users\User;
 use View\View;
@@ -22,8 +23,7 @@ class ArticlesController
 
         $article = Article::getById($id);
         if ($article === null) {
-            $this->view -> renderHTML('errors/page_404.php',  [], 404);
-            return;
+            throw new NotFoundException();
         }
         $this->view -> renderHTML('list/single.php',  ['articles'=>$article]);
     }
@@ -44,8 +44,7 @@ class ArticlesController
     {
         $article = Article::getById($id);
         if ($article === null) {
-            $this->view -> renderHTML('errors/page_404.php',  [], 404);
-            return;
+            throw new NotFoundException();
         }
         $article->setName("Edit Name");
         $article->setText("Edit Text");
